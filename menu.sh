@@ -6,6 +6,7 @@ options (){
     echo "
 1) Test Ram
 2) Test HDD/SSD
+3) Status Battery
 0) Exit
     "
 }
@@ -19,4 +20,24 @@ options
 read -p "Please select an option: " option
 
 case "$option" in
-
+    1)
+        echo "Testing RAM..."
+        bash diagnostics/ram.sh
+        ;;
+    2)
+        echo "Testing HDD/SSD..."
+        bash diagnostics/ssd.sh
+        ;;
+    3)
+        echo "Checking Battery Status..."
+        bash diagnostics/batterystats.sh
+        ;;
+    0)
+        echo "Exiting. Goodbye!"
+        exit 0
+        ;;
+    *)
+        echo "Invalid option, please try again."
+        ;;
+esac
+done
